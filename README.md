@@ -4,8 +4,7 @@ To run this agent, you need to set up a virtual environment with the dependencie
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/yulan-fan/lunar-lander-ppo.git]
-   cd my_embeded_ai_test
+   git clone [https://github.com/yulan-fan/lunar-lander-ppo.git
 
 2. **Install the course dependencies: Follow the instructions in the Unit 1 notebook or install the core libraries:**
    ```bash
