@@ -25,5 +25,14 @@ To improve the training efficiency and final performance:
 * **Automated Hyperparameter Tuning:** It would be highly beneficial to optimize the hyperparameters using a framework like **Optuna**. This would allow for a systematic search (e.g., Bayesian Optimization) rather than manual trial-and-error.
 * **Compute Constraints:** While Optuna is powerful, it is computationally expensive as it requires running multiple training trials. This approach should be implemented if computing resources and time allow.
 * **Reward Shaping:** For more complex environments (like the 8x8 Frozen Lake), introducing intermediate rewards could help guide the agent faster than relying on a sparse +1.0 goal reward.
+
+## Training and Computational Strategy
+
+To handle the high-dimensional state space of Atari *Space Invaders* and manage a **larger sample size**, training is conducted via the **VS Code Colab Extension**.
+
+* **Custom Neural Architecture:** Instead of using a generic "ready-made" network, the CNN is constructed within a **custom helper function/class**. This provides the flexibility to fine-tune the feature extraction layers and output heads specifically for the Atari frame-stacking logic.
+* **Hardware Acceleration:** Utilizes Google's **NVIDIA T4 GPU** to accelerate the convolutional forward and backward passes.
+* **Memory Management:** Implemented a `ReplayBuffer` with a capacity of **30,000 transitions**, optimized for the ~12GB RAM limit of the Colab Free Tier.
+* **Batch Processing:** A `batch_size` of **64** is used to provide a more stable gradient signal for the Adam optimizer.
   
    
